@@ -1,0 +1,169 @@
+/*
+  The one reset.css v1.0
+  A modern, universal CSS reset designed for general web projects.
+  Cleans up cross-browser inconsistencies while preserving accessible defaults.
+
+  Repository: https://github.com/faizanred908/one-reset-stylesheet
+  License: MIT (Free to use, modify, and distribute anywhere, anytime)
+  By Faizan
+*/
+
+/* 1. System & Theme Defaults */
+html {
+  /* Adapts to user's OS dark/light mode automatically */
+  color-scheme: dark light;
+  /* Prevents layout shifting when scrollbars appear */
+  scrollbar-gutter: stable;
+  /* Modern text-wrapping feature for supported languages */
+  hanging-punctuation: first last;
+  /* Configuration for anchor link jumping */
+  --scroll-padding: 3rem;
+}
+
+/* 2. Global Box-Sizing & Margin/Padding Reset */
+*,
+*::before,
+*::after {
+  /* Forces padding and borders to stay inside the defined width/height */
+  box-sizing: border-box;
+  /* Strips unpredictable margins and paddings globally */
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. Core Body Adjustments */
+body {
+  /* Ensures the body spans the full height of the viewport */
+  min-block-size: 100vh;
+  min-block-size: 100svh;
+  /* Sets a comfortable reading line-height */
+  line-height: 1.5;
+  /* Enhances text rendering sharpness on Apple devices */
+  -webkit-font-smoothing: antialiased;
+  /* Prevents ultra-long URLs or words from breaking your layouts */
+  overflow-wrap: break-word;
+  /* Clean system font stack that looks premium on all operating systems */
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    sans-serif;
+}
+
+/* 4. Responsive Media Elements */
+img,
+picture,
+video,
+canvas,
+svg,
+audio,
+iframe {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure SVG icons inherit text color and align with text */
+svg {
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+/* Enhances visual styling of broken images displaying alt text */
+img {
+  font-style: italic;
+  text-wrap: pretty;
+}
+
+/* 5. Clean Up Lists */
+ol,
+ul {
+  /* Removes default bullets and numbers so you can style lists freely */
+  list-style: none;
+}
+
+/* 6. General Form Element Resets */
+input,
+button,
+textarea,
+select {
+  /* Forces form controls to use your page's font instead of browser defaults */
+  font: inherit;
+  color: inherit;
+}
+
+/* Makes sure buttons look and act clickable */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  cursor: pointer;
+}
+
+/* 7. Hyperlink Normalization */
+a {
+  text-decoration: none;
+  /* Prevents links from turning bright blue automatically */
+  color: inherit;
+}
+
+/* 8. Table Reset */
+table {
+  /* Removes double borders and weird spacing inside tables */
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 9. Accessible Typography Optimization */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* Prevents single words from wrapping to a new line awkwardly */
+  text-wrap: balance;
+}
+
+p,
+li,
+figcaption,
+td,
+th {
+  /* Evaluates line breaks to prevent lonely "orphan" words at the end of text blocks */
+  text-wrap: pretty;
+}
+
+/* 10. Screen Reader Hidden Attribute Fix */
+[hidden] {
+  display: none !important;
+}
+
+/* 11. Accessibility: Motion Restrictions */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Accessibility: Safe Smooth Scrolling for users who don't mind motion */
+@media (prefers-reduced-motion: no-preference) {
+  html:has(:target) {
+    scroll-behavior: smooth;
+    /* Keeps a comfortable 3rem gap above an element when you jump to it via an anchor link */
+    scroll-padding-top: var(--scroll-padding);
+  }
+}
