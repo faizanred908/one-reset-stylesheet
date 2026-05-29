@@ -27,7 +27,33 @@ html {
 *::after {
   /* Forces padding and borders to stay inside the defined width/height */
   box-sizing: border-box;
-  /* Strips unpredictable margins and paddings globally */
+}
+
+/* Targeted margin/padding reset to avoid breaking native browser widgets */
+html,
+body,
+p,
+ol,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+figure,
+figcaption,
+hr,
+fieldset,
+legend,
+pre,
+details,
+summary,
+dl,
+dt,
+dd {
   margin: 0;
   padding: 0;
 }
@@ -47,12 +73,7 @@ body {
   font-family:
     system-ui,
     -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
+    Arial,
     sans-serif;
 }
 
@@ -69,10 +90,17 @@ iframe {
   height: auto;
 }
 
-/* Ensure SVG icons inherit text color and align with text */
+/* Ensure SVG icons inherit text color and align safely with text inline */
 svg {
-  fill: currentColor;
   vertical-align: middle;
+  /* Keep specificity at zero so this is easy to change for specific icons */
+  fill: currentColor;
+}
+
+/* 4.5 Improve focus visibility for keyboard users */
+:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
 }
 
 /* Enhances visual styling of broken images displaying alt text */
