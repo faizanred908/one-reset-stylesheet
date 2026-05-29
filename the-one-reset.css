@@ -73,7 +73,11 @@ body {
   font-family:
     system-ui,
     -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
     Arial,
+    Helvetica,
     sans-serif;
 }
 
@@ -91,9 +95,8 @@ iframe {
 }
 
 /* Ensure SVG icons inherit text color and align safely with text inline */
-svg {
+:where(svg) {
   vertical-align: middle;
-  /* Keep specificity at zero so this is easy to change for specific icons */
   fill: currentColor;
 }
 
@@ -110,8 +113,7 @@ img {
 }
 
 /* 5. Clean Up Lists */
-ol,
-ul {
+:where(ol, ul) {
   /* Removes default bullets and numbers so you can style lists freely */
   list-style: none;
 }
